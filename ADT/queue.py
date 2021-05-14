@@ -1,4 +1,7 @@
 class Elt:
+    """
+    Class representing a certain element, could be dummy or store data.
+    """
     def __init__(self, data: any, dummy: bool = False):
         self.dummy = dummy
         if not dummy:
@@ -6,6 +9,9 @@ class Elt:
 
 
 class Queue:
+    """
+    Class representing a queue.
+    """
     def __init__(self, initial_data):
         self.front = Elt(None, dummy=True)
         self.end = self.front
