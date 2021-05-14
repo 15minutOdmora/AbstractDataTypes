@@ -47,3 +47,29 @@ class Queue:
         if self.empty():
             raise ValueError("dequeue: The queue is empty.")
         self.front = self.front.next
+
+    def __repr__(self) -> str:
+        """
+        Representation of queue.
+        :return: str
+        """
+        _list = []
+        p = self.front
+        while not p.dummy:
+            _list.append(repr(p.data))
+            p = p.next
+        return "Queue([{}])".format(', '.join(_list))
+
+    def __str__(self) -> str:
+        """
+        String representation of queue.
+        :return: str
+        """
+        if self.empty():
+            return "Start : End"
+        _list = []
+        p = self.front
+        while not p.dummy:
+            _list.append(str(p.data))
+            p = p.next
+        return "Start : " + " : ".join(_list) + " : End"
