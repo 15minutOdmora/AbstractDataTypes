@@ -1,8 +1,11 @@
 
 class Stack:
-    def __init__(self):
+    def __init__(self, initial_data: iter = None):
         self._data = []
         self._counter = 0
+        if initial_data:
+            for elt in initial_data:
+                self.push(elt)
 
     def empty(self) -> bool:
         """
@@ -20,12 +23,13 @@ class Stack:
 
     def pop(self) -> None:
         """
-        Method remove the top element from the stack.
+        Method removes the top element from the stack.
         :return: None
         """
         if self.empty():
             raise ValueError("pop: The stack is already empty.")
         self._data.pop()
+        self._counter -= 1
 
     def peak(self) -> any:
         """
@@ -45,6 +49,7 @@ class Stack:
             raise ValueError("take: The stack is empty.")
         el = self._data[-1]
         self._data.pop()
+        self._counter -= 1
         return el
 
     def __len__(self) -> int:
